@@ -40,7 +40,7 @@ func port() string {
 
 func allBeers(c *gin.Context) {
 	beers := AllBeers()
-	c.JSON(http.StatusOK, beers)
+	c.JSON(http.StatusOK, gin.H{"beers": beers})
 }
 
 func createBeer(c *gin.Context) {
