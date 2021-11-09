@@ -19,6 +19,7 @@ build:
 deploy:
   kubectl:
     manifests: 
+      - grpc-beer-ui/k8s/*.yaml
       - rest-beer-golang/k8s/*.yaml
       - rest-beer-service/k8s/*.yaml
 
@@ -33,3 +34,8 @@ portForward:
     namespace: default
     port: 8081
     localPort: 18081
+  - resourceName: grpc-beer-ui
+    resourceType: service
+    namespace: default
+    port: 6969
+    localPort: 16969

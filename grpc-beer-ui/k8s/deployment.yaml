@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-beer-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-beer-ui
+  template:
+    metadata:
+      labels:
+        app: grpc-beer-ui
+    spec:
+      containers:
+      - name: grpc-ui
+        image: qaware/grpcox:latest
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
+        ports:
+        - name: http
+          containerPort: 6969

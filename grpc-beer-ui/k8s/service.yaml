@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-beer-ui
+spec:
+  selector:
+    app: grpc-beer-ui
+  type: ClusterIP
+  sessionAffinity: None
+  ports:
+    - protocol: TCP
+      port: 6969
+      targetPort: http
