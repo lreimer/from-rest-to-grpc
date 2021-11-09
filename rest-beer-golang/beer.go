@@ -4,8 +4,8 @@ package main
 type BeerType string
 
 const (
-	IndianPaleAle BeerType = "IPA"
-	SessionIpa    BeerType = "SessionIPA"
+	IndianPaleAle BeerType = "IndianPaleAle"
+	SessionIpa    BeerType = "SessionIpa"
 	Lager         BeerType = "Lager"
 )
 
