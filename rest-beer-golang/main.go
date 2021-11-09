@@ -34,7 +34,7 @@ func beersHandleFunc(w http.ResponseWriter, r *http.Request) {
 	switch method := r.Method; method {
 	case http.MethodGet:
 		beers := AllBeers()
-		writeJSON(w, beers)
+		writeJSON(w, BeerList{Beers: beers})
 	case http.MethodPost:
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {

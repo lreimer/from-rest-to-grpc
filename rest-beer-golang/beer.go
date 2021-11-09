@@ -9,6 +9,11 @@ const (
 	Lager         BeerType = "Lager"
 )
 
+// BeerList structure for array of beers
+type BeerList struct {
+	Beers []Beer `json:"beers"`
+}
+
 // Beer structure with ASIN, Name, Country and Alcohol
 type Beer struct {
 	ASIN    string   `json:"asin"`
