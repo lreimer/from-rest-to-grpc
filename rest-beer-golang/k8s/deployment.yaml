@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-beer-golang
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rest-beer-golang
+  template:
+    metadata:
+      labels:
+        app: rest-beer-golang
+    spec:
+      containers:
+      - name: rest-beer-golang
+        image: lreimer/rest-beer-golang
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        env:
+          - name: PORT
+            value: "8080"
+        ports:
+        - name: http
+          containerPort: 8080
