@@ -344,61 +344,6 @@ func (x *CreateBeerRequest) GetBeer() *Beer {
 	return nil
 }
 
-type CreateBeerResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Beer    *Beer `protobuf:"bytes,1,opt,name=beer,proto3" json:"beer,omitempty"`
-	Success bool  `protobuf:"varint,2,opt,name=success,proto3" json:"success,omitempty"`
-}
-
-func (x *CreateBeerResponse) Reset() {
-	*x = CreateBeerResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_beer_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *CreateBeerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateBeerResponse) ProtoMessage() {}
-
-func (x *CreateBeerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_beer_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateBeerResponse.ProtoReflect.Descriptor instead.
-func (*CreateBeerResponse) Descriptor() ([]byte, []int) {
-	return file_beer_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *CreateBeerResponse) GetBeer() *Beer {
-	if x != nil {
-		return x.Beer
-	}
-	return nil
-}
-
-func (x *CreateBeerResponse) GetSuccess() bool {
-	if x != nil {
-		return x.Success
-	}
-	return false
-}
-
 type UpdateBeerRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -410,7 +355,7 @@ type UpdateBeerRequest struct {
 func (x *UpdateBeerRequest) Reset() {
 	*x = UpdateBeerRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_beer_proto_msgTypes[6]
+		mi := &file_beer_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -423,7 +368,7 @@ func (x *UpdateBeerRequest) String() string {
 func (*UpdateBeerRequest) ProtoMessage() {}
 
 func (x *UpdateBeerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_beer_proto_msgTypes[6]
+	mi := &file_beer_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -436,7 +381,7 @@ func (x *UpdateBeerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateBeerRequest.ProtoReflect.Descriptor instead.
 func (*UpdateBeerRequest) Descriptor() ([]byte, []int) {
-	return file_beer_proto_rawDescGZIP(), []int{6}
+	return file_beer_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UpdateBeerRequest) GetBeer() *Beer {
@@ -444,61 +389,6 @@ func (x *UpdateBeerRequest) GetBeer() *Beer {
 		return x.Beer
 	}
 	return nil
-}
-
-type UpdateBeerResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Beer    *Beer `protobuf:"bytes,1,opt,name=beer,proto3" json:"beer,omitempty"`
-	Success bool  `protobuf:"varint,2,opt,name=success,proto3" json:"success,omitempty"`
-}
-
-func (x *UpdateBeerResponse) Reset() {
-	*x = UpdateBeerResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_beer_proto_msgTypes[7]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateBeerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateBeerResponse) ProtoMessage() {}
-
-func (x *UpdateBeerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_beer_proto_msgTypes[7]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateBeerResponse.ProtoReflect.Descriptor instead.
-func (*UpdateBeerResponse) Descriptor() ([]byte, []int) {
-	return file_beer_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *UpdateBeerResponse) GetBeer() *Beer {
-	if x != nil {
-		return x.Beer
-	}
-	return nil
-}
-
-func (x *UpdateBeerResponse) GetSuccess() bool {
-	if x != nil {
-		return x.Success
-	}
-	return false
 }
 
 type DeleteBeerRequest struct {
@@ -512,7 +402,7 @@ type DeleteBeerRequest struct {
 func (x *DeleteBeerRequest) Reset() {
 	*x = DeleteBeerRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_beer_proto_msgTypes[8]
+		mi := &file_beer_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -525,7 +415,7 @@ func (x *DeleteBeerRequest) String() string {
 func (*DeleteBeerRequest) ProtoMessage() {}
 
 func (x *DeleteBeerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_beer_proto_msgTypes[8]
+	mi := &file_beer_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -538,7 +428,7 @@ func (x *DeleteBeerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteBeerRequest.ProtoReflect.Descriptor instead.
 func (*DeleteBeerRequest) Descriptor() ([]byte, []int) {
-	return file_beer_proto_rawDescGZIP(), []int{8}
+	return file_beer_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DeleteBeerRequest) GetAsin() string {
@@ -546,61 +436,6 @@ func (x *DeleteBeerRequest) GetAsin() string {
 		return x.Asin
 	}
 	return ""
-}
-
-type DeleteBeerRespone struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Beer    *Beer `protobuf:"bytes,1,opt,name=beer,proto3" json:"beer,omitempty"`
-	Success bool  `protobuf:"varint,2,opt,name=success,proto3" json:"success,omitempty"`
-}
-
-func (x *DeleteBeerRespone) Reset() {
-	*x = DeleteBeerRespone{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_beer_proto_msgTypes[9]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *DeleteBeerRespone) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteBeerRespone) ProtoMessage() {}
-
-func (x *DeleteBeerRespone) ProtoReflect() protoreflect.Message {
-	mi := &file_beer_proto_msgTypes[9]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteBeerRespone.ProtoReflect.Descriptor instead.
-func (*DeleteBeerRespone) Descriptor() ([]byte, []int) {
-	return file_beer_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *DeleteBeerRespone) GetBeer() *Beer {
-	if x != nil {
-		return x.Beer
-	}
-	return nil
-}
-
-func (x *DeleteBeerRespone) GetSuccess() bool {
-	if x != nil {
-		return x.Success
-	}
-	return false
 }
 
 var File_beer_proto protoreflect.FileDescriptor
@@ -633,32 +468,17 @@ var file_beer_proto_rawDesc = []byte{
 	0x33, 0x0a, 0x11, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x42, 0x65, 0x65, 0x72, 0x52, 0x65, 0x71,
 	0x75, 0x65, 0x73, 0x74, 0x12, 0x1e, 0x0a, 0x04, 0x62, 0x65, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01,
 	0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x62, 0x65, 0x65, 0x72, 0x2e, 0x42, 0x65, 0x65, 0x72, 0x52, 0x04,
-	0x62, 0x65, 0x65, 0x72, 0x22, 0x4e, 0x0a, 0x12, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x42, 0x65,
-	0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1e, 0x0a, 0x04, 0x62, 0x65,
-	0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x62, 0x65, 0x65, 0x72, 0x2e,
-	0x42, 0x65, 0x65, 0x72, 0x52, 0x04, 0x62, 0x65, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75,
-	0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63,
-	0x63, 0x65, 0x73, 0x73, 0x22, 0x33, 0x0a, 0x11, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x65,
+	0x62, 0x65, 0x65, 0x72, 0x22, 0x33, 0x0a, 0x11, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x65,
 	0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1e, 0x0a, 0x04, 0x62, 0x65, 0x65,
 	0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x62, 0x65, 0x65, 0x72, 0x2e, 0x42,
-	0x65, 0x65, 0x72, 0x52, 0x04, 0x62, 0x65, 0x65, 0x72, 0x22, 0x4e, 0x0a, 0x12, 0x55, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x42, 0x65, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x1e, 0x0a, 0x04, 0x62, 0x65, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0a, 0x2e,
-	0x62, 0x65, 0x65, 0x72, 0x2e, 0x42, 0x65, 0x65, 0x72, 0x52, 0x04, 0x62, 0x65, 0x65, 0x72, 0x12,
-	0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x08,
-	0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x27, 0x0a, 0x11, 0x44, 0x65, 0x6c,
+	0x65, 0x65, 0x72, 0x52, 0x04, 0x62, 0x65, 0x65, 0x72, 0x22, 0x27, 0x0a, 0x11, 0x44, 0x65, 0x6c,
 	0x65, 0x74, 0x65, 0x42, 0x65, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12,
 	0x0a, 0x04, 0x61, 0x73, 0x69, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x61, 0x73,
-	0x69, 0x6e, 0x22, 0x4d, 0x0a, 0x11, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x42, 0x65, 0x65, 0x72,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x65, 0x12, 0x1e, 0x0a, 0x04, 0x62, 0x65, 0x65, 0x72, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x62, 0x65, 0x65, 0x72, 0x2e, 0x42, 0x65, 0x65,
-	0x72, 0x52, 0x04, 0x62, 0x65, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65,
-	0x73, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73,
-	0x73, 0x42, 0x3e, 0x5a, 0x3c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
-	0x6c, 0x72, 0x65, 0x69, 0x6d, 0x65, 0x72, 0x2f, 0x66, 0x72, 0x6f, 0x6d, 0x2d, 0x72, 0x65, 0x73,
-	0x74, 0x2d, 0x74, 0x6f, 0x2d, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x72, 0x65, 0x73, 0x74, 0x2d, 0x62,
-	0x65, 0x65, 0x72, 0x2d, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x69, 0x6e, 0x42, 0x3e, 0x5a, 0x3c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2f, 0x6c, 0x72, 0x65, 0x69, 0x6d, 0x65, 0x72, 0x2f, 0x66, 0x72, 0x6f, 0x6d, 0x2d, 0x72, 0x65,
+	0x73, 0x74, 0x2d, 0x74, 0x6f, 0x2d, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x72, 0x65, 0x73, 0x74, 0x2d,
+	0x62, 0x65, 0x65, 0x72, 0x2d, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2f, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -674,34 +494,28 @@ func file_beer_proto_rawDescGZIP() []byte {
 }
 
 var file_beer_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_beer_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_beer_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_beer_proto_goTypes = []interface{}{
-	(Beer_BeerType)(0),         // 0: beer.Beer.BeerType
-	(*Beer)(nil),               // 1: beer.Beer
-	(*GetBeersResponse)(nil),   // 2: beer.GetBeersResponse
-	(*GetBeerRequest)(nil),     // 3: beer.GetBeerRequest
-	(*GetBeerResponse)(nil),    // 4: beer.GetBeerResponse
-	(*CreateBeerRequest)(nil),  // 5: beer.CreateBeerRequest
-	(*CreateBeerResponse)(nil), // 6: beer.CreateBeerResponse
-	(*UpdateBeerRequest)(nil),  // 7: beer.UpdateBeerRequest
-	(*UpdateBeerResponse)(nil), // 8: beer.UpdateBeerResponse
-	(*DeleteBeerRequest)(nil),  // 9: beer.DeleteBeerRequest
-	(*DeleteBeerRespone)(nil),  // 10: beer.DeleteBeerRespone
+	(Beer_BeerType)(0),        // 0: beer.Beer.BeerType
+	(*Beer)(nil),              // 1: beer.Beer
+	(*GetBeersResponse)(nil),  // 2: beer.GetBeersResponse
+	(*GetBeerRequest)(nil),    // 3: beer.GetBeerRequest
+	(*GetBeerResponse)(nil),   // 4: beer.GetBeerResponse
+	(*CreateBeerRequest)(nil), // 5: beer.CreateBeerRequest
+	(*UpdateBeerRequest)(nil), // 6: beer.UpdateBeerRequest
+	(*DeleteBeerRequest)(nil), // 7: beer.DeleteBeerRequest
 }
 var file_beer_proto_depIdxs = []int32{
 	0, // 0: beer.Beer.type:type_name -> beer.Beer.BeerType
 	1, // 1: beer.GetBeersResponse.beers:type_name -> beer.Beer
 	1, // 2: beer.GetBeerResponse.beer:type_name -> beer.Beer
 	1, // 3: beer.CreateBeerRequest.beer:type_name -> beer.Beer
-	1, // 4: beer.CreateBeerResponse.beer:type_name -> beer.Beer
-	1, // 5: beer.UpdateBeerRequest.beer:type_name -> beer.Beer
-	1, // 6: beer.UpdateBeerResponse.beer:type_name -> beer.Beer
-	1, // 7: beer.DeleteBeerRespone.beer:type_name -> beer.Beer
-	8, // [8:8] is the sub-list for method output_type
-	8, // [8:8] is the sub-list for method input_type
-	8, // [8:8] is the sub-list for extension type_name
-	8, // [8:8] is the sub-list for extension extendee
-	0, // [0:8] is the sub-list for field type_name
+	1, // 4: beer.UpdateBeerRequest.beer:type_name -> beer.Beer
+	5, // [5:5] is the sub-list for method output_type
+	5, // [5:5] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_beer_proto_init() }
@@ -771,18 +585,6 @@ func file_beer_proto_init() {
 			}
 		}
 		file_beer_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateBeerResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_beer_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateBeerRequest); i {
 			case 0:
 				return &v.state
@@ -794,32 +596,8 @@ func file_beer_proto_init() {
 				return nil
 			}
 		}
-		file_beer_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateBeerResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_beer_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_beer_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteBeerRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_beer_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteBeerRespone); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -837,7 +615,7 @@ func file_beer_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_beer_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   10,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

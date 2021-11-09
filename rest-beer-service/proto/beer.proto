@@ -34,25 +34,10 @@ message CreateBeerRequest {
     Beer beer = 1;
 }
 
-message CreateBeerResponse {
-    Beer beer = 1;
-    bool success = 2;
-}
-
 message UpdateBeerRequest {
     Beer beer = 1;
 }
 
-message UpdateBeerResponse {
-    Beer beer = 1;
-    bool success = 2;
-}
-
 message DeleteBeerRequest {
     string asin = 1;
-}
-
-message DeleteBeerRespone {
-    Beer beer = 1;
-    bool success = 2;
 }
