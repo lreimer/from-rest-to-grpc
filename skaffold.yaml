@@ -17,6 +17,8 @@ build:
       context: grpc-beer-client/
     - image: lreimer/grpc-beer-gateway
       context: grpc-beer-gateway/
+    - image: lreimer/grpc-beer-nginx
+      context: grpc-beer-nginx/
   local:
     useBuildkit: true
     useDockerCLI: false
@@ -28,6 +30,7 @@ deploy:
       - grpc-beer-client/k8s/*.yaml
       - grpc-beer-service/k8s/*.yaml
       - grpc-beer-gateway/k8s/*.yaml
+      - grpc-beer-nginx/k8s/*.yaml
       - grpc-beer-ui/k8s/*.yaml
       - rest-beer-golang/k8s/*.yaml
       - rest-beer-service/k8s/*.yaml

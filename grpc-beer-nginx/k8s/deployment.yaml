@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-beer-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-beer-nginx
+  template:
+    metadata:
+      labels:
+        app: grpc-beer-nginx
+    spec:
+      containers:
+      - name: grpc-beer-nginx
+        image: lreimer/grpc-beer-nginx
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - name: http
+          containerPort: 8888

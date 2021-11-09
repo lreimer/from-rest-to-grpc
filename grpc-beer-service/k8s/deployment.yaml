@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: grpc-beer-service
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: grpc-beer-service
