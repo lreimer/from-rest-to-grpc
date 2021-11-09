@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-beer-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-beer-gateway
+  template:
+    metadata:
+      labels:
+        app: grpc-beer-gateway
+    spec:
+      containers:
+      - name: grpc-beer-gateway
+        image: lreimer/grpc-beer-gateway
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        env:
+          - name: PORT
+            value: "8090"
+        ports:
+        - name: http
+          containerPort: 8090

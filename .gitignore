@@ -19,3 +19,6 @@
 rest-beer-golang/rest-beer-golang
 rest-beer-service/rest-beer-service
 rest-beer-client/rest-beer-client
+grpc-beer-client/grpc-beer-client
+grpc-beer-gateway/grpc-beer-gateway
+grpc-beer-service/grpc-beer-service
