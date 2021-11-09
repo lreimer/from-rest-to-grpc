@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-beer-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rest-beer-service
+  template:
+    metadata:
+      labels:
+        app: rest-beer-service
+    spec:
+      containers:
+      - name: rest-beer-service
+        image: lreimer/rest-beer-service
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        env:
+          - name: PORT
+            value: "8080"
+        ports:
+        - name: http
+          containerPort: 8080
