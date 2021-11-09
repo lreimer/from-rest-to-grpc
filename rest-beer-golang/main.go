@@ -27,7 +27,7 @@ func port() string {
 
 func indexHandleFunc(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprintf(w, "REST in Peace. Long live gRPC.")
+	fmt.Fprintf(w, "Beer REST Service")
 }
 
 func beersHandleFunc(w http.ResponseWriter, r *http.Request) {
