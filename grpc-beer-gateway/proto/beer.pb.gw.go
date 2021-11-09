@@ -268,7 +268,7 @@ func RegisterBeerServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/beer.BeerService/AllBeers", runtime.WithHTTPPathPattern("/api/books"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/beer.BeerService/AllBeers", runtime.WithHTTPPathPattern("/api/beers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -291,7 +291,7 @@ func RegisterBeerServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/beer.BeerService/GetBeer", runtime.WithHTTPPathPattern("/api/books/{asin}"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/beer.BeerService/GetBeer", runtime.WithHTTPPathPattern("/api/beers/{asin}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -314,7 +314,7 @@ func RegisterBeerServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/beer.BeerService/CreateBeer", runtime.WithHTTPPathPattern("/api/books"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/beer.BeerService/CreateBeer", runtime.WithHTTPPathPattern("/api/beers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -337,7 +337,7 @@ func RegisterBeerServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/beer.BeerService/UpdateBeer", runtime.WithHTTPPathPattern("/api/books/{asin}"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/beer.BeerService/UpdateBeer", runtime.WithHTTPPathPattern("/api/beers/{asin}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -360,7 +360,7 @@ func RegisterBeerServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/beer.BeerService/DeleteBeer", runtime.WithHTTPPathPattern("/api/books/{asin}"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/beer.BeerService/DeleteBeer", runtime.WithHTTPPathPattern("/api/beers/{asin}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -422,7 +422,7 @@ func RegisterBeerServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/beer.BeerService/AllBeers", runtime.WithHTTPPathPattern("/api/books"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/beer.BeerService/AllBeers", runtime.WithHTTPPathPattern("/api/beers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -442,7 +442,7 @@ func RegisterBeerServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/beer.BeerService/GetBeer", runtime.WithHTTPPathPattern("/api/books/{asin}"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/beer.BeerService/GetBeer", runtime.WithHTTPPathPattern("/api/beers/{asin}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -462,7 +462,7 @@ func RegisterBeerServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/beer.BeerService/CreateBeer", runtime.WithHTTPPathPattern("/api/books"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/beer.BeerService/CreateBeer", runtime.WithHTTPPathPattern("/api/beers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -482,7 +482,7 @@ func RegisterBeerServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/beer.BeerService/UpdateBeer", runtime.WithHTTPPathPattern("/api/books/{asin}"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/beer.BeerService/UpdateBeer", runtime.WithHTTPPathPattern("/api/beers/{asin}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -502,7 +502,7 @@ func RegisterBeerServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/beer.BeerService/DeleteBeer", runtime.WithHTTPPathPattern("/api/books/{asin}"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/beer.BeerService/DeleteBeer", runtime.WithHTTPPathPattern("/api/beers/{asin}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -531,15 +531,15 @@ func (m response_BeerService_GetBeer_0) XXX_ResponseBody() interface{} {
 }
 
 var (
-	pattern_BeerService_AllBeers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "books"}, ""))
+	pattern_BeerService_AllBeers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "beers"}, ""))
 
-	pattern_BeerService_GetBeer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "books", "asin"}, ""))
+	pattern_BeerService_GetBeer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "beers", "asin"}, ""))
 
-	pattern_BeerService_CreateBeer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "books"}, ""))
+	pattern_BeerService_CreateBeer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "beers"}, ""))
 
-	pattern_BeerService_UpdateBeer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "books", "asin"}, ""))
+	pattern_BeerService_UpdateBeer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "beers", "asin"}, ""))
 
-	pattern_BeerService_DeleteBeer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "books", "asin"}, ""))
+	pattern_BeerService_DeleteBeer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "beers", "asin"}, ""))
 )
 
 var (

@@ -11,34 +11,34 @@ service BeerService {
     // Get the list of all beers
     rpc AllBeers (google.protobuf.Empty) returns (GetBeersResponse) {
         option (google.api.http) = {
-            get: "/api/books"
+            get: "/api/beers"
         };      
     }
     // Get a single beer by Asin
     rpc GetBeer (GetBeerRequest) returns (GetBeerResponse) {
         option (google.api.http) = {
-            get: "/api/books/{asin}"
+            get: "/api/beers/{asin}"
             response_body: "beer"
         };
     }
     // Create a new beer
     rpc CreateBeer (CreateBeerRequest) returns (google.protobuf.Empty) {
         option (google.api.http) = {
-            post: "/api/books"
+            post: "/api/beers"
             body: "*"
         };
     }
     // Update an existing beer
     rpc UpdateBeer (UpdateBeerRequest) returns (google.protobuf.Empty) {
         option (google.api.http) = {
-            put: "/api/books/{asin}"
+            put: "/api/beers/{asin}"
             body: "beer"
         };
     }
     // Delete an existing beeer
     rpc DeleteBeer (DeleteBeerRequest) returns (google.protobuf.Empty) {
         option (google.api.http) = {
-            delete: "/api/books/{asin}"
+            delete: "/api/beers/{asin}"
         };
     }
 }
