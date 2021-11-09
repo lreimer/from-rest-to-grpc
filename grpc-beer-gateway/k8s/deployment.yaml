@@ -23,6 +23,8 @@ spec:
             memory: "128Mi"
             cpu: "250m"
         env:
+          - name: GRPC_SERVER_ENDPOINT
+            value: "grpc-beer-service:9090"
           - name: PORT
             value: "8090"
         ports:
