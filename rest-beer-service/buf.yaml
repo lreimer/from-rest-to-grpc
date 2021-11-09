@@ -1,0 +1,7 @@
+version: v1beta1
+name: github.com/lreimer/from-rest-to-grpc
+deps:
+  - buf.build/beta/googleapis
+build:
+  roots:
+    - proto

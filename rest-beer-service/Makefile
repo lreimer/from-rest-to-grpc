@@ -6,6 +6,7 @@ image:
 	@docker build -t lreimer/$(NAME) .
 
 build:
+	@buf generate
 	@go build 
 
 clean:

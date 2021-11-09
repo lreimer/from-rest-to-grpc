@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/lreimer/from-rest-to-grpc/rest-beer-service/proto"
 )
 
 func main() {
@@ -38,7 +39,8 @@ func port() string {
 }
 
 func allBeers(c *gin.Context) {
-	c.JSON(http.StatusOK, AllBeers())
+	beers := AllBeers()
+	c.JSON(http.StatusOK, beers)
 }
 
 func createBeer(c *gin.Context) {
@@ -56,9 +58,22 @@ func createBeer(c *gin.Context) {
 
 func getBeer(c *gin.Context) {
 	asin := c.Params.ByName("asin")
-	gin, found := GetBeer(asin)
+	beer, found := GetBeer(asin)
 	if found {
-		c.JSON(http.StatusOK, gin)
+		if c.Request.Header.Get("Accept") == "application/x-protobuf" {
+			pbeer := &proto.Beer{
+				Asin:    beer.ASIN,
+				Name:    beer.Name,
+				Brand:   beer.Brand,
+				Country: beer.Country,
+				Alcohol: beer.Alcohol,
+				Type:    proto.Beer_BeerType(proto.Beer_BeerType_value[string(beer.Type)]),
+			}
+			c.ProtoBuf(http.StatusOK, &proto.GetBeerResponse{Beer: pbeer})
+		} else {
+			c.JSON(http.StatusOK, beer)
+		}
+
 	} else {
 		c.AbortWithStatus(http.StatusNotFound)
 	}
