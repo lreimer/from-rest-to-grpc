@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: grpc-beer-client
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: grpc-beer-client
+            image: lreimer/grpc-beer-client
+            resources:
+              requests:
+                memory: "64Mi"
+                cpu: "100m"
+              limits:
+                memory: "128Mi"
+                cpu: "250m"
+            env:
+              - name: HOST
+                value: "grpc-beer-service"
+              - name: PORT
+                value: "9090"
+          restartPolicy: OnFailure
