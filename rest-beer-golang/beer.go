@@ -1,17 +1,28 @@
 package main
 
-// Beer type with ASIN, Name, Country and Alcohol
+// Beer type as string enum
+type BeerType string
+
+const (
+	IndianPaleAle BeerType = "IPA"
+	SessionIpa    BeerType = "SessionIPA"
+	Lager         BeerType = "Lager"
+)
+
+// Beer structure with ASIN, Name, Country and Alcohol
 type Beer struct {
-	ASIN    string `json:"asin"`
-	Name    string `json:"name"`
-	Country string `json:"country"`
-	Alcohol int    `json:"alcohol"`
+	ASIN    string   `json:"asin"`
+	Name    string   `json:"name"`
+	Brand   string   `json:"brand"`
+	Country string   `json:"country"`
+	Alcohol float32  `json:"alcohol"`
+	Type    BeerType `json:"type"`
 }
 
 var beers = map[string]Beer{
-	"B00N3P44OM": {ASIN: "B00N3P44OM", Name: "Windspiel Premium Dry Gin", Country: "Germany", Alcohol: 47},
-	"B00IE97JCQ": {ASIN: "B00IE97JCQ", Name: "Granit Bavarian Gin", Country: "Germany", Alcohol: 42},
-	"B00A0DF494": {ASIN: "B00A0DF494", Name: "Gin Mare", Country: "Spain", Alcohol: 43},
+	"B079V9ZDNY": {ASIN: "B079V9ZDNY", Name: "Drunken Sailor", Brand: "CREW Republic", Country: "Germany", Alcohol: 6.4, Type: IndianPaleAle},
+	"B07B2YW1TW": {ASIN: "B07B2YW1TW", Name: "Hop Junkie", Brand: "CREW Republic", Country: "Germany", Alcohol: 3.4, Type: SessionIpa},
+	"B01AU6LWNC": {ASIN: "B01AU6LWNC", Name: "Edelstoff Exportbier", Brand: "Augustiner Brauerei München", Country: "Germany", Alcohol: 5.6, Type: Lager},
 }
 
 // AllBeers returns a slice of all Beers
