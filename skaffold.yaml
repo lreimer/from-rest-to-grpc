@@ -11,6 +11,8 @@ build:
       context: rest-beer-golang/
     - image: lreimer/rest-beer-service
       context: rest-beer-service/
+    - image: lreimer/grpc-beer-service
+      context: grpc-beer-service/
   local:
     useBuildkit: true
     useDockerCLI: false
@@ -19,6 +21,7 @@ build:
 deploy:
   kubectl:
     manifests: 
+      - grpc-beer-service/k8s/*.yaml
       - grpc-beer-ui/k8s/*.yaml
       - rest-beer-golang/k8s/*.yaml
       - rest-beer-service/k8s/*.yaml
@@ -34,6 +37,11 @@ portForward:
     namespace: default
     port: 8081
     localPort: 18081
+  - resourceName: grpc-beer-service
+    resourceType: service
+    namespace: default
+    port: 9090
+    localPort: 19090
   - resourceName: grpc-beer-ui
     resourceType: service
     namespace: default
