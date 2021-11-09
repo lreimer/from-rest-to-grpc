@@ -30,7 +30,7 @@ func (s *Server) GetBeer(ctx context.Context, r *pb.GetBeerRequest) (*pb.GetBeer
 
 // Create a new beer
 func (s *Server) CreateBeer(ctx context.Context, r *pb.CreateBeerRequest) (*emptypb.Empty, error) {
-	_, created := createBeer(*r.Beer)
+	_, created := createBeer(r.Beer)
 	if created {
 		return &emptypb.Empty{}, nil
 	} else {
@@ -40,7 +40,7 @@ func (s *Server) CreateBeer(ctx context.Context, r *pb.CreateBeerRequest) (*empt
 
 // Update an existing beer
 func (s *Server) UpdateBeer(ctx context.Context, r *pb.UpdateBeerRequest) (*emptypb.Empty, error) {
-	updated := updateBeer(r.Asin, *r.Beer)
+	updated := updateBeer(r.Asin, r.Beer)
 	if updated {
 		return &emptypb.Empty{}, nil
 	} else {
