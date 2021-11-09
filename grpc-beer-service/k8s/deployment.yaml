@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-beer-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-beer-service
+  template:
+    metadata:
+      labels:
+        app: grpc-beer-service
+    spec:
+      containers:
+      - name: grpc-beer-service
+        image: lreimer/grpc-beer-service
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        env:
+          - name: HOST
+            value: "0.0.0.0"
+          - name: PORT
+            value: "9090"
+        ports:
+        - name: grpc
+          containerPort: 9090
