@@ -56,6 +56,11 @@ portForward:
     namespace: default
     port: 8090
     localPort: 18090
+  - resourceName: grpc-beer-nginx
+    resourceType: service
+    namespace: default
+    port: 8888
+    localPort: 18888
   - resourceName: grpc-beer-ui
     resourceType: service
     namespace: default
