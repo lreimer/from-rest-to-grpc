@@ -7,7 +7,7 @@ package beer;
 
 service BeerService {
     // Get the list of all beers
-    rpc GetBeers (google.protobuf.Empty) returns (GetBeersResponse) {}
+    rpc AllBeers (google.protobuf.Empty) returns (GetBeersResponse) {}
     // Get a single beer by Asin
     rpc GetBeer (GetBeerRequest) returns (GetBeerResponse) {}
     // Create a new beer
@@ -49,7 +49,8 @@ message CreateBeerRequest {
 }
 
 message UpdateBeerRequest {
-    Beer beer = 1;
+    string asin = 1;
+    Beer beer = 2;
 }
 
 message DeleteBeerRequest {

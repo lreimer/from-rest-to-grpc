@@ -20,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BeerServiceClient interface {
 	// Get the list of all beers
-	GetBeers(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetBeersResponse, error)
+	AllBeers(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetBeersResponse, error)
 	// Get a single beer by Asin
 	GetBeer(ctx context.Context, in *GetBeerRequest, opts ...grpc.CallOption) (*GetBeerResponse, error)
 	// Create a new beer
@@ -39,9 +39,9 @@ func NewBeerServiceClient(cc grpc.ClientConnInterface) BeerServiceClient {
 	return &beerServiceClient{cc}
 }
 
-func (c *beerServiceClient) GetBeers(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetBeersResponse, error) {
+func (c *beerServiceClient) AllBeers(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetBeersResponse, error) {
 	out := new(GetBeersResponse)
-	err := c.cc.Invoke(ctx, "/beer.BeerService/GetBeers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/beer.BeerService/AllBeers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func (c *beerServiceClient) DeleteBeer(ctx context.Context, in *DeleteBeerReques
 // for forward compatibility
 type BeerServiceServer interface {
 	// Get the list of all beers
-	GetBeers(context.Context, *emptypb.Empty) (*GetBeersResponse, error)
+	AllBeers(context.Context, *emptypb.Empty) (*GetBeersResponse, error)
 	// Get a single beer by Asin
 	GetBeer(context.Context, *GetBeerRequest) (*GetBeerResponse, error)
 	// Create a new beer
@@ -105,8 +105,8 @@ type BeerServiceServer interface {
 type UnimplementedBeerServiceServer struct {
 }
 
-func (UnimplementedBeerServiceServer) GetBeers(context.Context, *emptypb.Empty) (*GetBeersResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetBeers not implemented")
+func (UnimplementedBeerServiceServer) AllBeers(context.Context, *emptypb.Empty) (*GetBeersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AllBeers not implemented")
 }
 func (UnimplementedBeerServiceServer) GetBeer(context.Context, *GetBeerRequest) (*GetBeerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetBeer not implemented")
@@ -133,20 +133,20 @@ func RegisterBeerServiceServer(s grpc.ServiceRegistrar, srv BeerServiceServer) {
 	s.RegisterService(&BeerService_ServiceDesc, srv)
 }
 
-func _BeerService_GetBeers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BeerService_AllBeers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BeerServiceServer).GetBeers(ctx, in)
+		return srv.(BeerServiceServer).AllBeers(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/beer.BeerService/GetBeers",
+		FullMethod: "/beer.BeerService/AllBeers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeerServiceServer).GetBeers(ctx, req.(*emptypb.Empty))
+		return srv.(BeerServiceServer).AllBeers(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -231,8 +231,8 @@ var BeerService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*BeerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetBeers",
-			Handler:    _BeerService_GetBeers_Handler,
+			MethodName: "AllBeers",
+			Handler:    _BeerService_AllBeers_Handler,
 		},
 		{
 			MethodName: "GetBeer",
