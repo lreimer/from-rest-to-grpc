@@ -29,8 +29,8 @@ var beers = map[string]Beer{
 func AllBeers() []Beer {
 	values := make([]Beer, len(beers))
 	idx := 0
-	for _, spirit := range beers {
-		values[idx] = spirit
+	for _, beer := range beers {
+		values[idx] = beer
 		idx++
 	}
 	return values
@@ -38,25 +38,25 @@ func AllBeers() []Beer {
 
 // GetBeer returns the beer for a given ASIN
 func GetBeer(asin string) (Beer, bool) {
-	spirit, found := beers[asin]
-	return spirit, found
+	beer, found := beers[asin]
+	return beer, found
 }
 
 // CreateBeer creates a new Beer if it does not exist
-func CreateBeer(spirit Beer) (string, bool) {
-	_, exists := beers[spirit.ASIN]
+func CreateBeer(beer Beer) (string, bool) {
+	_, exists := beers[beer.ASIN]
 	if exists {
 		return "", false
 	}
-	beers[spirit.ASIN] = spirit
-	return spirit.ASIN, true
+	beers[beer.ASIN] = beer
+	return beer.ASIN, true
 }
 
 // UpdateBeer updates an existing beer
-func UpdateBeer(asin string, spirit Beer) bool {
+func UpdateBeer(asin string, beer Beer) bool {
 	_, exists := beers[asin]
 	if exists {
-		beers[asin] = spirit
+		beers[asin] = beer
 	}
 	return exists
 }
