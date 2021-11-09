@@ -15,3 +15,7 @@
 # vendor/
 
 .dccache
+
+rest-beer-golang/rest-beer-golang
+rest-beer-service/rest-beer-service
+rest-beer-client/rest-beer-client

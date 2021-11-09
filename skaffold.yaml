@@ -1,0 +1,27 @@
+apiVersion: skaffold/v2beta24
+kind: Config
+metadata:
+  name: from-rest-to-grpc
+
+build:
+  tagPolicy:
+    gitCommit: {}
+  artifacts:
+    - image: lreimer/rest-beer-golang
+      context: rest-beer-golang/
+  local:
+    useBuildkit: true
+    useDockerCLI: false
+  # cluster: {}
+
+deploy:
+  kubectl:
+    manifests: 
+      - rest-beer-golang/k8s/*.yaml
+
+portForward:
+  - resourceName: rest-beer-golang
+    resourceType: service
+    namespace: default
+    port: 8080
+    localPort: 18080
