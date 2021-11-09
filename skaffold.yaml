@@ -9,6 +9,8 @@ build:
   artifacts:
     - image: lreimer/rest-beer-golang
       context: rest-beer-golang/
+    - image: lreimer/rest-beer-service
+      context: rest-beer-service/
   local:
     useBuildkit: true
     useDockerCLI: false
@@ -18,6 +20,7 @@ deploy:
   kubectl:
     manifests: 
       - rest-beer-golang/k8s/*.yaml
+      - rest-beer-service/k8s/*.yaml
 
 portForward:
   - resourceName: rest-beer-golang
@@ -25,3 +28,8 @@ portForward:
     namespace: default
     port: 8080
     localPort: 18080
+  - resourceName: rest-beer-service
+    resourceType: service
+    namespace: default
+    port: 8081
+    localPort: 18081
