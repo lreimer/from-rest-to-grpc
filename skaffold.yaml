@@ -29,6 +29,7 @@ deploy:
     manifests: 
       - grpc-beer-client/k8s/*.yaml
       - grpc-beer-service/k8s/*.yaml
+      - grpc-beer-envoy/k8s/*.yaml
       - grpc-beer-gateway/k8s/*.yaml
       - grpc-beer-nginx/k8s/*.yaml
       - grpc-beer-ui/k8s/*.yaml
@@ -56,6 +57,11 @@ portForward:
     namespace: default
     port: 8090
     localPort: 18090
+  - resourceName: grpc-beer-envoy
+    resourceType: service
+    namespace: default
+    port: 8091
+    localPort: 18091
   - resourceName: grpc-beer-nginx
     resourceType: service
     namespace: default
