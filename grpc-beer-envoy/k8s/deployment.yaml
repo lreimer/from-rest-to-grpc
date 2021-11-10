@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-beer-envoy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-beer-envoy
+  template:
+    metadata:
+      labels:
+        app: grpc-beer-envoy
+    spec:
+      containers:
+      - name: grpc-beer-envoy
+        image: lreimer/grpc-beer-envoy
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - name: http
+          containerPort: 8091
