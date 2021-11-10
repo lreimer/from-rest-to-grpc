@@ -1,13 +1,26 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "beer.proto",
-    "version": "version not set"
+    "title": "gRPC Beer Gateway",
+    "version": "1.0",
+    "contact": {
+      "name": "Mario-Leander Reimer",
+      "url": "https://lreimer.github.io",
+      "email": "mario-leander.reimer@qaware.de"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/lreimer/from-rest-to-grpc/blob/master/LICENSE"
+    }
   },
   "tags": [
     {
       "name": "BeerService"
     }
+  ],
+  "schemes": [
+    "http",
+    "https"
   ],
   "consumes": [
     "application/json"
@@ -259,5 +272,9 @@
         }
       }
     }
+  },
+  "externalDocs": {
+    "description": "Beer Service gRPC Gateway",
+    "url": "https://github.com/lreimer/from-rest-to-grpc/grpc-beer-gateway"
   }
 }

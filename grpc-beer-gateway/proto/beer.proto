@@ -4,6 +4,7 @@ option go_package = "github.com/lreimer/from-rest-to-grpc/grpc-beer-gateway/prot
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 package beer;
 
@@ -42,6 +43,30 @@ service BeerService {
         };
     }
 }
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+	info: {
+		title: "gRPC Beer Gateway";
+		version: "1.0";
+		contact: {
+			name: "Mario-Leander Reimer";
+			url: "https://lreimer.github.io";
+			email: "mario-leander.reimer@qaware.de";
+		};
+		license: {
+			name: "MIT";
+			url: "https://github.com/lreimer/from-rest-to-grpc/blob/master/LICENSE";
+		};		
+	};
+	external_docs: {
+		url: "https://github.com/lreimer/from-rest-to-grpc/grpc-beer-gateway";
+		description: "Beer Service gRPC Gateway";
+	}
+	schemes: HTTP;
+	schemes: HTTPS;
+	consumes: "application/json";
+	produces: "application/json";
+};
 
 message Beer {
     string asin = 1;
