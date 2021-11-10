@@ -1,0 +1,9 @@
+version: v1beta1
+plugins:
+  # this required grpc-web plugin installed
+  - name: js
+    out: .
+    opt: import_style=commonjs
+  - name: grpc-web
+    out: .
+    opt: import_style=commonjs+dts,mode=grpcwebtext
