@@ -1,0 +1,263 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "beer.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "BeerService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/beers": {
+      "get": {
+        "summary": "Get the list of all beers",
+        "operationId": "BeerService_AllBeers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/beerGetBeersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "BeerService"
+        ]
+      },
+      "post": {
+        "summary": "Create a new beer",
+        "operationId": "BeerService_CreateBeer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/beerCreateBeerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BeerService"
+        ]
+      }
+    },
+    "/api/beers/{asin}": {
+      "get": {
+        "summary": "Get a single beer by Asin",
+        "operationId": "BeerService_GetBeer",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/beerBeer"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "asin",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BeerService"
+        ]
+      },
+      "delete": {
+        "summary": "Delete an existing beeer",
+        "operationId": "BeerService_DeleteBeer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "asin",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BeerService"
+        ]
+      },
+      "put": {
+        "summary": "Update an existing beer",
+        "operationId": "BeerService_UpdateBeer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "asin",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/beerBeer"
+            }
+          }
+        ],
+        "tags": [
+          "BeerService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "BeerBeerType": {
+      "type": "string",
+      "enum": [
+        "IndianPaleAle",
+        "SessionIpa",
+        "Lager"
+      ],
+      "default": "IndianPaleAle"
+    },
+    "beerBeer": {
+      "type": "object",
+      "properties": {
+        "asin": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "alcohol": {
+          "type": "number",
+          "format": "float"
+        },
+        "type": {
+          "$ref": "#/definitions/BeerBeerType"
+        }
+      }
+    },
+    "beerCreateBeerRequest": {
+      "type": "object",
+      "properties": {
+        "beer": {
+          "$ref": "#/definitions/beerBeer"
+        }
+      }
+    },
+    "beerGetBeerResponse": {
+      "type": "object",
+      "properties": {
+        "beer": {
+          "$ref": "#/definitions/beerBeer"
+        }
+      }
+    },
+    "beerGetBeersResponse": {
+      "type": "object",
+      "properties": {
+        "beers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/beerBeer"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
