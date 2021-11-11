@@ -23,7 +23,7 @@ proto.beer = require('./beer_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -31,7 +31,7 @@ proto.beer = require('./beer_pb.js');
 proto.beer.BeerServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -49,7 +49,7 @@ proto.beer.BeerServiceClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -57,7 +57,7 @@ proto.beer.BeerServiceClient =
 proto.beer.BeerServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -95,30 +95,11 @@ const methodDescriptor_BeerService_AllBeers = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.google.protobuf.Empty,
- *   !proto.beer.GetBeersResponse>}
- */
-const methodInfo_BeerService_AllBeers = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.beer.GetBeersResponse,
-  /**
-   * @param {!proto.google.protobuf.Empty} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.beer.GetBeersResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.google.protobuf.Empty} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.beer.GetBeersResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.beer.GetBeersResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.beer.GetBeersResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -137,7 +118,7 @@ proto.beer.BeerServiceClient.prototype.allBeers =
 /**
  * @param {!proto.google.protobuf.Empty} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.beer.GetBeersResponse>}
  *     Promise that resolves to the response
@@ -175,30 +156,11 @@ const methodDescriptor_BeerService_GetBeer = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.beer.GetBeerRequest,
- *   !proto.beer.GetBeerResponse>}
- */
-const methodInfo_BeerService_GetBeer = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.beer.GetBeerResponse,
-  /**
-   * @param {!proto.beer.GetBeerRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.beer.GetBeerResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.beer.GetBeerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.beer.GetBeerResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.beer.GetBeerResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.beer.GetBeerResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -217,7 +179,7 @@ proto.beer.BeerServiceClient.prototype.getBeer =
 /**
  * @param {!proto.beer.GetBeerRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.beer.GetBeerResponse>}
  *     Promise that resolves to the response
@@ -255,30 +217,11 @@ const methodDescriptor_BeerService_CreateBeer = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.beer.CreateBeerRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_BeerService_CreateBeer = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.beer.CreateBeerRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.beer.CreateBeerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -297,7 +240,7 @@ proto.beer.BeerServiceClient.prototype.createBeer =
 /**
  * @param {!proto.beer.CreateBeerRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -335,30 +278,11 @@ const methodDescriptor_BeerService_UpdateBeer = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.beer.UpdateBeerRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_BeerService_UpdateBeer = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.beer.UpdateBeerRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.beer.UpdateBeerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -377,7 +301,7 @@ proto.beer.BeerServiceClient.prototype.updateBeer =
 /**
  * @param {!proto.beer.UpdateBeerRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -415,30 +339,11 @@ const methodDescriptor_BeerService_DeleteBeer = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.beer.DeleteBeerRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_BeerService_DeleteBeer = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.beer.DeleteBeerRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.beer.DeleteBeerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -457,7 +362,7 @@ proto.beer.BeerServiceClient.prototype.deleteBeer =
 /**
  * @param {!proto.beer.DeleteBeerRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
