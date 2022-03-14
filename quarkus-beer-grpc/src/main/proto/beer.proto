@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option java_package = "hands.on.grpc";
+option java_outer_classname = "BeerProtos";
+option optimize_for = SPEED;
+
+import "google/protobuf/empty.proto";
+package beer;
+
+service BeerService {
+  // Get the list of all beers
+  rpc AllBeers (google.protobuf.Empty) returns (GetBeersResponse) {}
+  // Get a single beer by Asin
+  rpc GetBeer (GetBeerRequest) returns (GetBeerResponse) {}
+  // Create a new beer
+  rpc CreateBeer (CreateBeerRequest) returns (google.protobuf.Empty) {}
+  // Update an existing beer
+  rpc UpdateBeer (UpdateBeerRequest) returns (google.protobuf.Empty) {}
+  // Delete an existing beeer
+  rpc DeleteBeer (DeleteBeerRequest) returns (google.protobuf.Empty) {}
+}
+
+message Beer {
+  string asin = 1;
+  string name = 2;
+  string brand = 3;
+  string country = 4;
+  float alcohol = 5;
+  enum BeerType{
+    IndianPaleAle = 0;
+    SessionIpa = 1;
+    Lager = 2;
+  }
+  BeerType type = 6;
+}
+
+message GetBeersResponse {
+  repeated Beer beers = 1;
+}
+
+message GetBeerRequest {
+  string asin = 1;
+}
+
+message GetBeerResponse {
+  Beer beer = 1;
+}
+
+message CreateBeerRequest {
+  Beer beer = 1;
+}
+
+message UpdateBeerRequest {
+  string asin = 1;
+  Beer beer = 2;
+}
+
+message DeleteBeerRequest {
+  string asin = 1;
+}
