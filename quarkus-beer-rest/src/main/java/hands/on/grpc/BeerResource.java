@@ -8,7 +8,7 @@ import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 import java.util.Objects;
 
-@Path("/beer")
+@Path("/beers")
 public class BeerResource {
 
     @Inject
