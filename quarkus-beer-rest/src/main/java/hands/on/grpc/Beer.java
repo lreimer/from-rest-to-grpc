@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Beer {
 
     public enum Type {
-        IndianPaleAle, SessionIpa, Lager;
+        IndianPaleAle, SessionIpa, Lager
     }
 
     private String asin;
