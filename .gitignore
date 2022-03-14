@@ -15,6 +15,11 @@
 # vendor/
 
 .dccache
+.vscode/
+.idea/
+.gradle/
+build/
+bin/
 
 rest-beer-golang/rest-beer-golang
 rest-beer-service/rest-beer-service
