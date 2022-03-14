@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-beer-service
+spec:
+  selector:
+    app: grpc-beer-service
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  ports:
+    - name: grpc
+      protocol: TCP
+      port: 9090
+      targetPort: grpc
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: http

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-beer-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rest-beer-service
+  template:
+    metadata:
+      labels:
+        app: rest-beer-service
+    spec:
+      containers:
+      - name: rest-beer-service
+        image: lreimer/quarkus-beer-rest
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
+        ports:
+        - name: http
+          containerPort: 8080
