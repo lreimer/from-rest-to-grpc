@@ -12,6 +12,7 @@ dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-resteasy-jsonb'
     implementation 'io.quarkus:quarkus-resteasy'
+    implementation "io.quarkus:quarkus-smallrye-health"
     implementation 'io.quarkus:quarkus-arc'
 
     testImplementation 'io.quarkus:quarkus-junit5'
