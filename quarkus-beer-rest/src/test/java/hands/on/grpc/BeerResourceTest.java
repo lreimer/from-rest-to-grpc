@@ -11,7 +11,7 @@ public class BeerResourceTest {
     @Test
     public void testBeerEndpoint() {
         given()
-                .when().get("/api/beer")
+                .when().get("/api/beers")
                 .then()
                 .statusCode(200);
     }

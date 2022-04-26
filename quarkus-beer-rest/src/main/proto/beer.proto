@@ -12,7 +12,7 @@ message Beer {
   string brand = 3;
   string country = 4;
   float alcohol = 5;
-  enum BeerType{
+  enum BeerType {
     IndianPaleAle = 0;
     SessionIpa = 1;
     Lager = 2;
