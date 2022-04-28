@@ -2,9 +2,11 @@ syntax = "proto3";
 
 package beer;
 
+option java_multiple_files = false;
 option java_package = "hands.on.grpc";
 option java_outer_classname = "BeerProtos";
 option optimize_for = SPEED;
+// option objc_class_prefix = "HLW";
 
 message Beer {
   string asin = 1;
