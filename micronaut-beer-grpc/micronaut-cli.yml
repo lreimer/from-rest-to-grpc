@@ -1,0 +1,6 @@
+applicationType: grpc
+defaultPackage: hands.on.grpc
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, gradle, grpc, jackson-databind, java, java-application, junit, micronaut-build, readme, shade, slf4j-simple, yaml]

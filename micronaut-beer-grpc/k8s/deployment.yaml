@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-beer-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-beer-service
+  template:
+    metadata:
+      labels:
+        app: grpc-beer-service
+    spec:
+      containers:
+      - name: grpc-beer-service
+        image: lreimer/micronaut-beer-grpc
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
+        ports:
+        - name: http
+          containerPort: 8080
+        - name: grpc
+          containerPort: 9090

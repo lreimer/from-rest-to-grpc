@@ -1,0 +1,15 @@
+micronaut:
+  application:
+    name: micronautBeerGrpc
+
+grpc:
+  server:
+    port: 9090
+    keep-alive-time: 3h
+    health:
+      enabled: true
+
+netty:
+  default:
+    allocator:
+      max-order: 3
