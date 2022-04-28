@@ -27,7 +27,7 @@ public class BeerGrpcService extends BeerServiceGrpc.BeerServiceImplBase {
 
     @Override
     public void allBeers(Empty request, StreamObserver<GetBeersResponse> responseObserver) {
-        Log.info("AllBears gRPC API called");
+        Log.info("AllBeers gRPC API called");
         GetBeersResponse.Builder builder = GetBeersResponse.newBuilder();
         for (Beer beer : beers.values()) {
             builder.addBeers(beer);
@@ -39,7 +39,7 @@ public class BeerGrpcService extends BeerServiceGrpc.BeerServiceImplBase {
 
     @Override
     public void getBeer(GetBeerRequest request, StreamObserver<GetBeerResponse> responseObserver) {
-        Log.info("GetBears gRPC API called");
+        Log.info("GetBeers gRPC API called");
         Beer beer = beers.get(request.getAsin());
         if (beer == null) {
             responseObserver.onError(new StatusException(Status.NOT_FOUND));
@@ -52,7 +52,7 @@ public class BeerGrpcService extends BeerServiceGrpc.BeerServiceImplBase {
 
     @Override
     public void createBeer(CreateBeerRequest request, StreamObserver<Empty> responseObserver) {
-        Log.info("CreateBear gRPC API called");
+        Log.info("CreateBeer gRPC API called");
         String asin = request.getBeer().getAsin();
         if (beers.containsKey(asin)) {
             responseObserver.onError(new StatusException(Status.ALREADY_EXISTS));
