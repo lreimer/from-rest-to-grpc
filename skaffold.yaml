@@ -27,6 +27,16 @@ build:
       docker:
         dockerfile: quarkus-beer-grpc/src/main/docker/Dockerfile.jvm
     
+    # for the Micronaut demo
+    - image: lreimer/micronaut-beer-rest
+      context: micronaut-beer-rest/
+      jib:
+        type: gradle
+    - image: lreimer/micronaut-beer-grpc
+      context: micronaut-beer-grpc/
+      jib:
+        type: gradle
+
     # for gRPC ecosystem demo
     - image: lreimer/grpc-beer-gateway
       context: grpc-beer-gateway/
@@ -35,6 +45,7 @@ build:
     - image: lreimer/grpc-beer-envoy
       context: grpc-beer-envoy/
   local:
+    # push: false
     useBuildkit: true
     useDockerCLI: false
 
@@ -48,8 +59,12 @@ deploy:
       # - grpc-beer-service/k8s/*.yaml
 
       # for the Quarkus demo
-      - quarkus-beer-rest/k8s/*.yaml
-      - quarkus-beer-grpc/k8s/*.yaml
+      # - quarkus-beer-rest/k8s/*.yaml
+      # - quarkus-beer-grpc/k8s/*.yaml
+
+      # for the Micronaut demo
+      - micronaut-beer-rest/k8s/*.yaml
+      - micronaut-beer-grpc/k8s/*.yaml
 
       - grpc-beer-envoy/k8s/*.yaml
       - grpc-beer-gateway/k8s/*.yaml

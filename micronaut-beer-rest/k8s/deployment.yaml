@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grpc-beer-service
+  name: rest-beer-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: grpc-beer-service
+      app: rest-beer-service
   template:
     metadata:
       labels:
-        app: grpc-beer-service
+        app: rest-beer-service
     spec:
       containers:
-      - name: grpc-beer-service
-        image: lreimer/quarkus-beer-grpc
+      - name: rest-beer-service
+        image: lreimer/micronaut-beer-rest
         resources:
           requests:
             memory: "128Mi"
@@ -25,5 +25,3 @@ spec:
         ports:
         - name: http
           containerPort: 8080
-        - name: grpc
-          containerPort: 9090
