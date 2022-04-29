@@ -25,7 +25,7 @@ public class BeerController {
     }
     
     @Post(uri = "/beers", consumes = "application/json")
-    public HttpResponse<String> create(Beer beer) {
+    public HttpResponse<String> create(@Body Beer beer) {
         logger.info("CreateBeer() REST API called");
         String asin = repository.create(beer);
         return HttpResponse.created("/api/beers/" + asin);
@@ -39,7 +39,7 @@ public class BeerController {
     }
 
     @Put(uri = "/beers/{asin}", produces = "application/json", consumes = "application/json")
-    public HttpResponse<String> update(String asin, Beer beer) {
+    public HttpResponse<String> update(String asin, @Body Beer beer) {
         logger.info("UpdateBeer() REST API called");
         if (!Objects.equals(asin, beer.getAsin())) {
             return HttpResponse.badRequest();

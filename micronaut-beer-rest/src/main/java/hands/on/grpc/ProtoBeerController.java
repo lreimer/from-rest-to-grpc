@@ -27,7 +27,7 @@ public class ProtoBeerController {
     }
 
     @Post(uri = "/beers", produces = "application/x-protobuf", consumes = "application/x-protobuf")
-    public HttpResponse<GetBeerResponse> getBeer(GetBeerRequest request) {
+    public HttpResponse<GetBeerResponse> getBeer(@Body GetBeerRequest request) {
         Beer beer = repository.find(request.getAsin());
         GetBeerResponse response = GetBeerResponse.newBuilder()
                 .setBeer(BeerProtos.Beer.newBuilder()
