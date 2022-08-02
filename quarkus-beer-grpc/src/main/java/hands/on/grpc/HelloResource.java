@@ -11,7 +11,8 @@ import javax.ws.rs.core.MediaType;
 @Path("/hello")
 public class HelloResource {
 
-    @GrpcClient("greeter")
+    //@GrpcClient("greeter")
+    @GrpcClient
     HelloGrpcGrpc.HelloGrpcBlockingStub stub;
 
     @GET
