@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: grpc-beer-service
-        image: lreimer/micronaut-beer-grpc
+        image: qaware/micronaut-beer-grpc
         resources:
           requests:
             memory: "128Mi"

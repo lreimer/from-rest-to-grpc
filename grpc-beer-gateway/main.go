@@ -9,7 +9,7 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 
-	gw "github.com/lreimer/from-rest-to-grpc/grpc-beer-gateway/proto"
+	gw "github.com/qaware/from-rest-to-grpc/grpc-beer-gateway/proto"
 )
 
 func main() {

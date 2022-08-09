@@ -38,7 +38,7 @@ java {
 tasks {
     jib {
         to {
-            image = "lreimer/micronaut-beer-rest"
+            image = "qaware/micronaut-beer-rest"
         }
     }
 }

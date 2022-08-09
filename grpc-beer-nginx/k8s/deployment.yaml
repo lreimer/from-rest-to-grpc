@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: grpc-beer-nginx
-        image: lreimer/grpc-beer-nginx
+        image: qaware/grpc-beer-nginx
         resources:
           requests:
             memory: "32Mi"

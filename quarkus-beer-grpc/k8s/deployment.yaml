@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: grpc-beer-service
-        image: lreimer/quarkus-beer-grpc
+        image: qaware/quarkus-beer-grpc
         resources:
           requests:
             memory: "128Mi"

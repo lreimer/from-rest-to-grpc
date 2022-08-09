@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: rest-beer-service
-        image: lreimer/rest-beer-service
+        image: qaware/rest-beer-service
         resources:
           requests:
             memory: "64Mi"

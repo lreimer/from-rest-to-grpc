@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/lreimer/from-rest-to-grpc/rest-beer-service/proto";
+option go_package = "github.com/qaware/from-rest-to-grpc/rest-beer-service/proto";
 package beer;
 
 message Beer {

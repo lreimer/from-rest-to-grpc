@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lreimer/from-rest-to-grpc.git"
+    "url": "git+https://github.com/qaware/from-rest-to-grpc.git"
   },
   "keywords": [
     "grpc-web"
@@ -16,9 +16,9 @@
   "author": "M.-Leander Reimer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lreimer/from-rest-to-grpc/issues"
+    "url": "https://github.com/qaware/from-rest-to-grpc/issues"
   },
-  "homepage": "https://github.com/lreimer/from-rest-to-grpc",
+  "homepage": "https://github.com/qaware/from-rest-to-grpc",
   "dependencies": {
     "google-protobuf": "^3.20.1",
     "grpc-web": "^1.3.0"

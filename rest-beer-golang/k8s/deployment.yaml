@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: rest-beer-golang
-        image: lreimer/rest-beer-golang
+        image: qaware/rest-beer-golang
         resources:
           requests:
             memory: "64Mi"

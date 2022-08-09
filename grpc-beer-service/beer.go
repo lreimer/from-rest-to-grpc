@@ -1,7 +1,7 @@
 package main
 
 import (
-	pb "github.com/lreimer/from-rest-to-grpc/grpc-beer-service/proto"
+	pb "github.com/qaware/from-rest-to-grpc/grpc-beer-service/proto"
 )
 
 var beers = map[string]*pb.Beer{

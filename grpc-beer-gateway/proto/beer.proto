@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/lreimer/from-rest-to-grpc/grpc-beer-gateway/proto";
+option go_package = "github.com/qaware/from-rest-to-grpc/grpc-beer-gateway/proto";
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
@@ -55,11 +55,11 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 		};
 		license: {
 			name: "MIT";
-			url: "https://github.com/lreimer/from-rest-to-grpc/blob/master/LICENSE";
+			url: "https://github.com/qaware/from-rest-to-grpc/blob/master/LICENSE";
 		};		
 	};
 	external_docs: {
-		url: "https://github.com/lreimer/from-rest-to-grpc/grpc-beer-gateway";
+		url: "https://github.com/qaware/from-rest-to-grpc/grpc-beer-gateway";
 		description: "Beer Service gRPC Gateway";
 	}
 	schemes: HTTP;

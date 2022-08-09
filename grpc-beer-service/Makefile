@@ -8,7 +8,7 @@ run:
 
 .PHONY: build
 image:
-	@docker build -t lreimer/$(NAME) .
+	@docker build -t qaware/$(NAME) .
 
 .PHONY: build
 build: grpc-beer-service

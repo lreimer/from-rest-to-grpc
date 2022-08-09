@@ -3,7 +3,7 @@ NAME = rest-beer-service
 default: build
 
 image:
-	@docker build -t lreimer/$(NAME) .
+	@docker build -t qaware/$(NAME) .
 
 build:
 	@buf generate

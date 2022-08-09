@@ -8,41 +8,41 @@ build:
     gitCommit: {}
   artifacts:
     # for the Golang demo
-    # - image: lreimer/grpc-beer-client
+    # - image: qaware/grpc-beer-client
     #   context: grpc-beer-client/
-    # - image: lreimer/rest-beer-golang
+    # - image: qaware/rest-beer-golang
     #   context: rest-beer-golang/
-    # - image: lreimer/rest-beer-service
+    # - image: qaware/rest-beer-service
     #   context: rest-beer-service/
-    # - image: lreimer/grpc-beer-service
+    # - image: qaware/grpc-beer-service
     #   context: grpc-beer-service/
     
     # for the Quarkus demo
-    - image: lreimer/quarkus-beer-rest
+    - image: qaware/quarkus-beer-rest
       context: quarkus-beer-rest/
       docker:
         dockerfile: quarkus-beer-rest/src/main/docker/Dockerfile.jvm
-    - image: lreimer/quarkus-beer-grpc
+    - image: qaware/quarkus-beer-grpc
       context: quarkus-beer-grpc/
       docker:
         dockerfile: quarkus-beer-grpc/src/main/docker/Dockerfile.jvm
     
     # for the Micronaut demo
-    - image: lreimer/micronaut-beer-rest
+    - image: qaware/micronaut-beer-rest
       context: micronaut-beer-rest/
       jib:
         type: gradle
-    - image: lreimer/micronaut-beer-grpc
+    - image: qaware/micronaut-beer-grpc
       context: micronaut-beer-grpc/
       jib:
         type: gradle
 
     # for gRPC ecosystem demo
-    - image: lreimer/grpc-beer-gateway
+    - image: qaware/grpc-beer-gateway
       context: grpc-beer-gateway/
-    - image: lreimer/grpc-beer-nginx
+    - image: qaware/grpc-beer-nginx
       context: grpc-beer-nginx/
-    - image: lreimer/grpc-beer-envoy
+    - image: qaware/grpc-beer-envoy
       context: grpc-beer-envoy/
   local:
     # push: false

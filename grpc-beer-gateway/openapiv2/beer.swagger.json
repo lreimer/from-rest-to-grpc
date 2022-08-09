@@ -10,7 +10,7 @@
     },
     "license": {
       "name": "MIT",
-      "url": "https://github.com/lreimer/from-rest-to-grpc/blob/master/LICENSE"
+      "url": "https://github.com/qaware/from-rest-to-grpc/blob/master/LICENSE"
     }
   },
   "tags": [
@@ -275,6 +275,6 @@
   },
   "externalDocs": {
     "description": "Beer Service gRPC Gateway",
-    "url": "https://github.com/lreimer/from-rest-to-grpc/grpc-beer-gateway"
+    "url": "https://github.com/qaware/from-rest-to-grpc/grpc-beer-gateway"
   }
 }

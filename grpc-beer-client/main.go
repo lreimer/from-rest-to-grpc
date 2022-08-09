@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	pb "github.com/lreimer/from-rest-to-grpc/grpc-beer-client/proto"
+	pb "github.com/qaware/from-rest-to-grpc/grpc-beer-client/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/types/known/emptypb"
 )

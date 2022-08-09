@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: grpc-beer-client
-            image: lreimer/grpc-beer-client
+            image: qaware/grpc-beer-client
             resources:
               requests:
                 memory: "64Mi"

@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lreimer/from-rest-to-grpc/rest-beer-service/proto"
+	"github.com/qaware/from-rest-to-grpc/rest-beer-service/proto"
 )
 
 func main() {

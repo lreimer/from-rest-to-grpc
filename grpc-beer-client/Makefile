@@ -3,7 +3,7 @@ NAME = grpc-beer-client
 default: build
 
 image:
-	@docker build -t lreimer/$(NAME) .
+	@docker build -t qaware/$(NAME) .
 
 build:
 	@buf generate

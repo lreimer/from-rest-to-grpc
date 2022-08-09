@@ -38,7 +38,7 @@ java {
 tasks {
     jib {
         to {
-            image = "lreimer/micronaut-beer-grpc"
+            image = "qaware/micronaut-beer-grpc"
         }
     }
 }

@@ -1,4 +1,4 @@
-module github.com/lreimer/from-rest-to-grpc/rest-beer-service
+module github.com/qaware/from-rest-to-grpc/rest-beer-service
 
 go 1.17
 
