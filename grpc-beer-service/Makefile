@@ -8,15 +8,18 @@ run:
 
 .PHONY: image
 image:
-	@docker build -t qaware/$(NAME) .
+	docker build -t qaware/$(NAME) .
 
 .PHONY: build
 build: grpc-beer-service
 
-grpc-beer-service:
-	@buf generate
-	@go build
+grpc-beer-service: proto/beer.pb.go
+	go build
+
+proto/beer.pb.go:
+	buf generate
 
 .PHONY: clean
 clean:
-	@rm -f $(NAME)
+	rm proto/*.pb.go
+	rm -f $(NAME)
