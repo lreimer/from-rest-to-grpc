@@ -6,7 +6,7 @@ default: build
 run:
 	HOST=127.0.0.1 PORT=9090 ./grpc-beer-service
 
-.PHONY: build
+.PHONY: image
 image:
 	@docker build -t qaware/$(NAME) .
 
@@ -17,6 +17,6 @@ grpc-beer-service:
 	@buf generate
 	@go build
 
-.PHONY: build
+.PHONY: clean
 clean:
 	@rm -f $(NAME)
