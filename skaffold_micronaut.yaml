@@ -1,0 +1,77 @@
+apiVersion: skaffold/v2beta24
+kind: Config
+metadata:
+  name: from-rest-to-grpc
+
+build:
+  tagPolicy:
+    gitCommit: {}
+  artifacts:
+    # for the Micronaut demo
+    - image: lreimer/micronaut-beer-rest
+      context: micronaut-beer-rest/
+      jib:
+        type: gradle
+    - image: lreimer/micronaut-beer-grpc
+      context: micronaut-beer-grpc/
+      jib:
+        type: gradle
+
+    # for gRPC ecosystem demo
+    - image: lreimer/grpc-beer-gateway
+      context: grpc-beer-gateway/
+    - image: lreimer/grpc-beer-nginx
+      context: grpc-beer-nginx/
+    - image: lreimer/grpc-beer-envoy
+      context: grpc-beer-envoy/
+  
+  local:
+    # push: false
+    useBuildkit: true
+    useDockerCLI: false
+
+deploy:
+  kubectl:
+    manifests:
+      # for the Micronaut demo
+      - micronaut-beer-rest/k8s/*.yaml
+      - micronaut-beer-grpc/k8s/*.yaml
+
+      - grpc-beer-envoy/k8s/*.yaml
+      - grpc-beer-gateway/k8s/*.yaml
+      - grpc-beer-nginx/k8s/*.yaml
+      - grpc-beer-ui/k8s/*.yaml
+      
+portForward: 
+  # for the Micronaut demo
+  - resourceName: rest-beer-service
+    resourceType: service
+    namespace: default
+    port: 8080
+    localPort: 18080
+  - resourceName: grpc-beer-service
+    resourceType: service
+    namespace: default
+    port: 9090
+    localPort: 19090
+
+  - resourceName: grpc-beer-gateway
+    resourceType: service
+    namespace: default
+    port: 8090
+    localPort: 18090
+  - resourceName: grpc-beer-envoy
+    resourceType: service
+    namespace: default
+    port: 8091
+    localPort: 18091
+  - resourceName: grpc-beer-nginx
+    resourceType: service
+    namespace: default
+    port: 8888
+    localPort: 18888
+  - resourceName: grpc-beer-ui
+    resourceType: service
+    namespace: default
+    port: 6969
+    localPort: 16969

@@ -7,16 +7,6 @@ build:
   tagPolicy:
     gitCommit: {}
   artifacts:
-    # for the Golang demo
-    # - image: lreimer/grpc-beer-client
-    #   context: grpc-beer-client/
-    # - image: lreimer/rest-beer-golang
-    #   context: rest-beer-golang/
-    # - image: lreimer/rest-beer-service
-    #   context: rest-beer-service/
-    # - image: lreimer/grpc-beer-service
-    #   context: grpc-beer-service/
-    
     # for the Quarkus demo
     - image: lreimer/quarkus-beer-rest
       context: quarkus-beer-rest/
@@ -27,16 +17,6 @@ build:
       docker:
         dockerfile: quarkus-beer-grpc/src/main/docker/Dockerfile.jvm
     
-    # for the Micronaut demo
-    - image: lreimer/micronaut-beer-rest
-      context: micronaut-beer-rest/
-      jib:
-        type: gradle
-    - image: lreimer/micronaut-beer-grpc
-      context: micronaut-beer-grpc/
-      jib:
-        type: gradle
-
     # for gRPC ecosystem demo
     - image: lreimer/grpc-beer-gateway
       context: grpc-beer-gateway/
@@ -44,6 +24,7 @@ build:
       context: grpc-beer-nginx/
     - image: lreimer/grpc-beer-envoy
       context: grpc-beer-envoy/
+  
   local:
     # push: false
     useBuildkit: true
@@ -52,43 +33,16 @@ build:
 deploy:
   kubectl:
     manifests: 
-      # for the Golang demo
-      # - rest-beer-golang/k8s/*.yaml
-      # - rest-beer-service/k8s/*.yaml
-      # - grpc-beer-client/k8s/*.yaml
-      # - grpc-beer-service/k8s/*.yaml
-
       # for the Quarkus demo
-      # - quarkus-beer-rest/k8s/*.yaml
-      # - quarkus-beer-grpc/k8s/*.yaml
-
-      # for the Micronaut demo
-      - micronaut-beer-rest/k8s/*.yaml
-      - micronaut-beer-grpc/k8s/*.yaml
+      - quarkus-beer-rest/k8s/*.yaml
+      - quarkus-beer-grpc/k8s/*.yaml
 
       - grpc-beer-envoy/k8s/*.yaml
       - grpc-beer-gateway/k8s/*.yaml
       - grpc-beer-nginx/k8s/*.yaml
       - grpc-beer-ui/k8s/*.yaml
       
-portForward:
-  # for the Golang demo
-  # - resourceName: rest-beer-golang
-  #   resourceType: service
-  #   namespace: default
-  #   port: 8080
-  #   localPort: 18080
-  # - resourceName: rest-beer-service
-  #   resourceType: service
-  #   namespace: default
-  #   port: 8081
-  #   localPort: 18081
-  # - resourceName: grpc-beer-service
-  #   resourceType: service
-  #   namespace: default
-  #   port: 9090
-  #   localPort: 19090
-  
+portForward: 
   # for the Quarkus demo
   - resourceName: rest-beer-service
     resourceType: service

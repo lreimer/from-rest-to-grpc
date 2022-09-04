@@ -1,0 +1,79 @@
+apiVersion: skaffold/v2beta24
+kind: Config
+metadata:
+  name: from-rest-to-grpc
+
+build:
+  tagPolicy:
+    gitCommit: {}
+  artifacts:
+    # for the Golang demo
+    - image: lreimer/grpc-beer-client
+      context: grpc-beer-client/
+    - image: lreimer/rest-beer-golang
+      context: rest-beer-golang/
+    - image: lreimer/rest-beer-service
+      context: rest-beer-service/
+    - image: lreimer/grpc-beer-service
+      context: grpc-beer-service/
+    
+    # for gRPC ecosystem demo
+    - image: lreimer/grpc-beer-gateway
+      context: grpc-beer-gateway/
+    - image: lreimer/grpc-beer-nginx
+      context: grpc-beer-nginx/
+    - image: lreimer/grpc-beer-envoy
+      context: grpc-beer-envoy/
+
+  local:
+    # push: false
+    useBuildkit: true
+    useDockerCLI: false
+
+deploy:
+  kubectl:
+    manifests: 
+      # for the Golang demo
+      - rest-beer-golang/k8s/*.yaml
+      - rest-beer-service/k8s/*.yaml
+      - grpc-beer-service/k8s/*.yaml
+      # - grpc-beer-client/k8s/*.yaml
+
+      - grpc-beer-envoy/k8s/*.yaml
+      - grpc-beer-gateway/k8s/*.yaml
+      - grpc-beer-nginx/k8s/*.yaml
+      - grpc-beer-ui/k8s/*.yaml
+      
+portForward:
+  # for the Golang demo
+  - resourceName: rest-beer-service
+    resourceType: service
+    namespace: default
+    port: 8080
+    localPort: 18080
+  - resourceName: grpc-beer-service
+    resourceType: service
+    namespace: default
+    port: 9090
+    localPort: 19090
+  
+  - resourceName: grpc-beer-gateway
+    resourceType: service
+    namespace: default
+    port: 8090
+    localPort: 18090
+  - resourceName: grpc-beer-envoy
+    resourceType: service
+    namespace: default
+    port: 8091
+    localPort: 18091
+  - resourceName: grpc-beer-nginx
+    resourceType: service
+    namespace: default
+    port: 8888
+    localPort: 18888
+  - resourceName: grpc-beer-ui
+    resourceType: service
+    namespace: default
+    port: 6969
+    localPort: 16969

@@ -9,7 +9,7 @@ RUN go build -o /go/bin/rest-beer-service
 FROM gcr.io/distroless/base-debian11
 
 ENV GIN_MODE=release
-ENV PORT=8081
+ENV PORT=8080
 
 COPY --from=build /go/src/app/templates /templates
 COPY --from=build /go/src/app/favicon.ico /
