@@ -1,4 +1,4 @@
-# REST in Peace. Long live gRCP.
+# REST in Peace. Long live gRCP!
 
 Demo repository for different REST to gRPC showcases. It contains several different service implementations as well as matching clients.
 
