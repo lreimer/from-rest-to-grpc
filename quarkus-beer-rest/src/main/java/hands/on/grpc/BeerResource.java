@@ -5,6 +5,9 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
+
+import io.quarkus.logging.Log;
+
 import java.net.URI;
 import java.util.Objects;
 
@@ -17,6 +20,7 @@ public class BeerResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response all() {
+        Log.info("Getting all JSON beers");
         return Response.ok(repository.all()).build();
     }
 
