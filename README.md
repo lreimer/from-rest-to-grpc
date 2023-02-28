@@ -2,7 +2,7 @@
 
 Demo repository for different REST to gRPC showcases. It contains several different service implementations as well as matching clients.
 
-## Usage
+## Running
 
 ```shell
 # this repo contains several different implementations, choose one
@@ -16,6 +16,22 @@ skaffold dev --no-prune=false --cache-artifacts=false -f skaffold_golang
 tilt up -f Tiltfile_quarkus
 tilt up -f Tiltfile_micronaut
 tilt up -f Tiltfile_golang
+```
+
+## Usage
+
+```shell
+# call the plain REST service endpoint
+http get localhost:18080/api/beers
+
+# call the gRPC service endpoint
+grpcurl -plaintext -proto micronaut-beer-grpc/src/main/proto/beer.proto localhost:19090 beer.BeerService/AllBeers
+
+# call the NGINX proxy for the gRPC endpoint
+grpcurl -plaintext -proto micronaut-beer-grpc/src/main/proto/beer.proto localhost:18888 beer.BeerService/AllBeers
+
+# call the gRPC gateway service endpoint
+http get localhost:18090/api/beers
 ```
 
 ## Maintainer
