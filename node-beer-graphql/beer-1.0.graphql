@@ -1,0 +1,30 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    # Get the list of all beers
+    allBeers: [Beer]!
+    # Get a single beer by ASIN
+    getBeer(asin: String!): Beer
+}
+
+type Mutation {
+    # Create a new beer entry
+    createBeer(asin: String!, name: String!, country: String, abv: Float, brewery: String): Beer
+    
+    # Update an existing beer entry
+    updateBeer(asin: String!, name: String!, country: String, abv: Float, brewery: String): Beer
+    
+    # Delete a beer by ASIN
+    deleteBeer(asin: String!): String
+}
+
+type Beer {
+    asin: String!
+    name: String!
+    country: String
+    abv: Float # Alcohol by volume
+    brewery: String
+}
